@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="CopiedMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\LIBs\Include\GLFW\glfw3.h" />
