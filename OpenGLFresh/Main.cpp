@@ -36,9 +36,16 @@ int main()
 
     while (!glfwWindowShouldClose(window))
     {
+        //inputs from keyboard
         processInput(window);
 
+        //rendering
+        glClearColor(0.1f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        //draw to screen
         glfwSwapBuffers(window);
+        //check keyboard
         glfwPollEvents();
     }
 
