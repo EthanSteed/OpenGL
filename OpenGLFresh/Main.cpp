@@ -36,9 +36,16 @@ int main()
 
     while (!glfwWindowShouldClose(window))
     {
+        // input check
         processInput(window);
 
+        //rendering
+        glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        //drawing to screen
         glfwSwapBuffers(window);
+        //check states
         glfwPollEvents();
     }
 
