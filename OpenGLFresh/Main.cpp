@@ -137,6 +137,7 @@ int main()
     //wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
+    glUseProgram(shaderProgram);
 
     while (!glfwWindowShouldClose(window))
     {
