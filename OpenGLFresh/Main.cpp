@@ -22,10 +22,11 @@ const char* vertexShaderSource = "#version 330 core\n"
 
 //set up fragment shader
 const char* fragmentShaderSource = "#version 330 core\n"
-"out vec4 FragColor;\n"
+"out vec4 FragColour;\n"
+"uniform vec4 ourColour;\n"
 "void main()\n"
 "{\n"
-"   FragColor = vec4 (1.0F, 0.5F, 0.2F, 1.0F);\n"
+"   FragColour = ourColour;\n"
 "}\n\0";
 
 int main()
@@ -95,10 +96,10 @@ int main()
     float vertices[] = {
          0.45f,  0.0f, 0.0f,
         -0.45f,  0.0f, 0.0f,
-         0.0f, -0.9f, 0.0f,
-         0.9f, -0.9f, 0.0f,
-        -0.9f, -0.9f, 0.0f,
-         0.0f,  0.9f, 0.0f
+         0.00f, -0.9f, 0.0f,
+         0.90f, -0.9f, 0.0f,
+        -0.90f, -0.9f, 0.0f,
+         0.00f,  0.9f, 0.0f
     };
 
     //declare order of drawing triangles 
@@ -128,7 +129,7 @@ int main()
     glEnableVertexAttribArray(0);
 
     //wireframe
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 
     while (!glfwWindowShouldClose(window))
@@ -143,6 +144,13 @@ int main()
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO); 
         // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
+        
+        // colour change
+        float timeValue = glfwGetTime();
+        float greenValue = (sin(timeValue)/4.0f) + 0.75f;
+        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColour");
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        
         //draw elements contains the number of vertices to draw look into automation
         glDrawElements(GL_TRIANGLES, sizeof(index), GL_UNSIGNED_INT, 0);
 
