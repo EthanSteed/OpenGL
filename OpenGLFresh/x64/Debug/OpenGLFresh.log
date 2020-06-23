@@ -1,4 +1,2 @@
 ﻿  Main.cpp
-  LINK : C:\Users\Oliver\Documents\Ethan_PI_work\OGL\x64\Debug\OpenGLFresh.exe not found or not built by the last incremental link; performing full link
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   OpenGLFresh.vcxproj -> C:\Users\Oliver\Documents\Ethan_PI_work\OGL\x64\Debug\OpenGLFresh.exe
