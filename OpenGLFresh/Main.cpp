@@ -3,6 +3,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "Shader.h"
+
 #include <iostream>
 
 
@@ -12,7 +14,7 @@ void processInput(GLFWwindow* window);
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
-
+/*
 //set up for vertex shader in GLSL
 const char* vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
@@ -31,7 +33,7 @@ const char* fragmentShaderSource = "#version 330 core\n"
 "{\n"
 "   FragColor = vec4(ourColor, 1.0f);\n"
 "}\n\0";
-
+*/
 int main()
 {
     glfwInit();
@@ -55,6 +57,7 @@ int main()
         return -1;
     }
 
+    /*
     // compile vertex shader
     int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -94,6 +97,9 @@ int main()
     }
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
+    */
+
+    Shader ourShader("shadervs", "shaderfs");
 
     //define points to render
     float vertices[] = {
@@ -137,7 +143,7 @@ int main()
     //wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-    glUseProgram(shaderProgram);
+    //glUseProgram(shaderProgram);
 
     while (!glfwWindowShouldClose(window))
     {
@@ -149,6 +155,7 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         //glUseProgram(shaderProgram);
+        ourShader.use();
         glBindVertexArray(VAO); 
         // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         
@@ -176,7 +183,7 @@ int main()
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     //glDeleteBuffers(1, &EBO);
-    glDeleteProgram(shaderProgram);
+    //glDeleteProgram(shaderProgram);
 
     glfwTerminate();
     return 0;
