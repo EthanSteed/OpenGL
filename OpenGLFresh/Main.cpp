@@ -99,7 +99,7 @@ int main()
     glDeleteShader(fragmentShader);
     */
 
-    Shader ourShader("shadervs", "shaderfs");
+    Shader ourShader("shadervs.txt", "shaderfs.txt");
 
     //define points to render
     float vertices[] = {
