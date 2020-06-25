@@ -113,4 +113,8 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="TextureFS.txt" />
+    <Text Include="TextureVS.txt" />
+  </ItemGroup>
 </Project>

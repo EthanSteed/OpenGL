@@ -100,7 +100,7 @@ int main()
     glDeleteShader(fragmentShader);
     */
 
-    Shader ourShader("shadervs.txt", "shaderfs.txt");
+    Shader ourShader("TextureVS.txt", "TextureFS.txt");
 
     //define points to render
     float vertices[] = {
@@ -121,7 +121,7 @@ int main()
 
     //declare order of drawing triangles 
     unsigned int index[] = {
-        0,  1,  2,
+        0,  1,  3,
         1,  2,  3,
         /*
         0, 1, 2,
@@ -146,10 +146,10 @@ int main()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(index), index, GL_STATIC_DRAW);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
     // texture coord attribute
@@ -168,7 +168,7 @@ int main()
     // load image, create texture and generate mipmaps
     int width, height, nrChannels;
     // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
-    unsigned char* data = stbi_load(FileSystem::getPath("resources/container.jpg").c_str(), &width, &height, &nrChannels, 0);
+    unsigned char* data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);

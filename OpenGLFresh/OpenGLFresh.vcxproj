@@ -195,6 +195,10 @@
   <ItemGroup>
     <Image Include="..\container.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="TextureFS.txt" />
+    <Text Include="TextureVS.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
