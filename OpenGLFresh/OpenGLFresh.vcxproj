@@ -194,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\container.jpg" />
+    <Image Include="awesomeface.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TextureFS.txt" />
