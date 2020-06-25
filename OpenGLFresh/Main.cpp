@@ -104,31 +104,35 @@ int main()
 
     //define points to render
     float vertices[] = {
+        /*
         // positions          // colors           // texture coords
          0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
          0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
         -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
         -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left
-        /*
-         0.45f,  0.0f, 0.0f, 0.5f, 0.0f, 0.5f,
-        -0.45f,  0.0f, 0.0f, 0.0f, 0.5f, 0.5f,
-         0.00f, -0.9f, 0.0f, 0.5f, 0.5f, 0.0f,
-         0.90f, -0.9f, 0.0f, 1.0f, 0.0f, 0.0f,
-        -0.90f, -0.9f, 0.0f, 0.0f, 1.0f, 0.0f,
-         0.00f,  0.9f, 0.0f, 0.0f, 0.0f, 1.0f,
-         */
+        */
+        
+         0.45f,  0.0f, 0.0f,    0.5f, 0.0f, 0.5f,    0.0f, 0.5f,
+        -0.45f,  0.0f, 0.0f,    0.0f, 0.5f, 0.5f,    1.0f, 0.5f,
+         0.00f, -0.9f, 0.0f,    0.5f, 0.5f, 0.0f,    0.5f, 0.0f,
+         0.90f, -0.9f, 0.0f,    1.0f, 0.0f, 0.0f,    0.0f, 0.0f,
+        -0.90f, -0.9f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 0.0f,
+         0.00f,  0.9f, 0.0f,    0.0f, 0.0f, 1.0f,    0.5f, 1.0f,
+         
     };
 
     //declare order of drawing triangles 
     unsigned int index[] = {
+        /*
         0,  1,  3,
         1,  2,  3,
-        /*
+        */
+        
         0, 1, 2,
         0, 2, 3,
         1, 2, 4,
         0, 1, 5,
-        */
+        
     };
 
     unsigned int EBO;
