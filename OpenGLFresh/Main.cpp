@@ -237,9 +237,11 @@ int main()
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
 
+        float Variance = 0.1*sin((float)glfwGetTime());
+
         //Transform
         glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-        transform = glm::translate(transform, (glm::vec3(0.0f, 0.0f, 0.0f) + sin((float)glfwGetTime())));
+        transform = glm::translate(transform, (glm::vec3(0.0f, 0.0f, 0.0f) + Variance));
         transform = glm::scale(transform, (glm::vec3(1, 1, 1)*sin((float)glfwGetTime())));
         transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
 

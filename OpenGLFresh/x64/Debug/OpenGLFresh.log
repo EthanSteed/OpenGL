@@ -1,2 +1,3 @@
 ﻿  Main.cpp
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(240,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   OpenGLFresh.vcxproj -> C:\Users\Oliver\Documents\Ethan_PI_work\OGL\x64\Debug\OpenGLFresh.exe
