@@ -108,34 +108,35 @@ int main()
 
     //define points to render
     float vertices[] = {
-        /*
+        
         // positions          // colors           // texture coords
          0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
          0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
         -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
         -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left
-        */
         
+        /*
          0.45f,  0.0f, 0.0f,    0.5f, 0.0f, 0.5f,    0.75f, 0.5f, //mid right
         -0.45f,  0.0f, 0.0f,    0.0f, 0.5f, 0.5f,    0.25f, 0.5f, //mid left
          0.00f, -0.9f, 0.0f,    0.5f, 0.5f, 0.0f,    0.50f, 0.0f, //bottom mid
          0.90f, -0.9f, 0.0f,    1.0f, 0.0f, 0.0f,    1.00f, 0.0f, //bottom right
         -0.90f, -0.9f, 0.0f,    0.0f, 1.0f, 0.0f,    0.00f, 0.0f, //bottom left
          0.00f,  0.9f, 0.0f,    0.0f, 0.0f, 1.0f,    0.50f, 1.0f, //top
-         
+         */
     };
 
     //declare order of drawing triangles 
     unsigned int index[] = {
-        /*
+        
         0,  1,  3,
         1,  2,  3,
-        */
+        
+        /*
         0, 1, 2,
         0, 2, 3,
         1, 2, 4,
         0, 1, 5,
-        
+        */
     };
 
     unsigned int EBO;
@@ -236,19 +237,39 @@ int main()
         glBindTexture(GL_TEXTURE_2D, texture1);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
-
+        /*
         float Variance = 0.1*sin((float)glfwGetTime());
 
         //Transform
         glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
         transform = glm::translate(transform, (glm::vec3(0.0f, 0.0f, 0.0f) + Variance));
-        transform = glm::scale(transform, (glm::vec3(1, 1, 1)*sin((float)glfwGetTime())));
+        transform = glm::scale(transform, (glm::vec3(10, 10, 10) * Variance));
         transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        */
 
         //glUseProgram(shaderProgram);
         ourShader.use();
-        unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+        //unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+        //glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+        //VeiwPoints
+        glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+        glm::mat4 view = glm::mat4(1.0f);
+        glm::mat4 projection = glm::mat4(1.0f);
+
+        model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+
+        // retrieve the matrix uniform locations
+        unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
+        unsigned int viewLoc = glGetUniformLocation(ourShader.ID, "view");
+        // pass them to the shaders (3 different ways)
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
+        // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+        ourShader.setMat4("projection", projection);
+
 
         glBindVertexArray(VAO); 
         // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
