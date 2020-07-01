@@ -104,7 +104,7 @@ int main()
     glDeleteShader(fragmentShader);
     */
 
-    //glEnable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
 
     Shader ourShader("TextureVS.txt", "TextureFS.txt");
 
@@ -305,7 +305,7 @@ int main()
         glm::mat4 projection = glm::mat4(1.0f);
 
         
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.0f, 100.0f);
+        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
 
         // retrieve the matrix uniform locations
@@ -326,6 +326,7 @@ int main()
             model = glm::translate(model, cubePositions[i]);
             float angle = (float)glfwGetTime() * 20.0f * (i+1);
             model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+            model = glm::translate(model, (glm::vec3(0.0f, 0.0f, 0.0f) + sin((float)glfwGetTime())));
             ourShader.setMat4("model", model);
 
             
