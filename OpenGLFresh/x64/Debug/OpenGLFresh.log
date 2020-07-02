@@ -1,5 +1,10 @@
 ﻿  Main.cpp
-C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(312,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(313,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(313,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(431,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(446,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(447,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(451,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(452,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(453,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Oliver\Documents\Ethan_PI_work\OGL\OpenGLFresh\Main.cpp(454,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   OpenGLFresh.vcxproj -> C:\Users\Oliver\Documents\Ethan_PI_work\OGL\x64\Debug\OpenGLFresh.exe
